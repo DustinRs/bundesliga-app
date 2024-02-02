@@ -19,6 +19,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { doc } from 'firebase/firestore';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-user',
@@ -33,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressBarModule,
     HttpClientModule,
     MatSelectModule,
+    RouterModule
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-user.component.html',
@@ -69,7 +71,6 @@ export class DialogUserComponent {
     );
     this.loading = false;
     this.dialogRef.close();
-    window.location.href = 'user';
   }
 
   fetchImgUrlData() {
