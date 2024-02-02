@@ -1,0 +1,79 @@
+<mat-card class="section">
+  <mat-card class="matchInfos">
+    <h3>{{ matchInfo.group.groupName }}</h3>
+     <mat-card>
+      <div
+        *ngIf="matchInfo.matchIsFinished; then thenBlock; else elseBlock"
+      ></div>
+      <ng-template #thenBlock>
+        <div class="matchDetails">
+          <img src="{{ matchInfo.team1.teamIconUrl }}" alt="" />
+          <div class="matchResult">
+            <h1>{{ matchInfo["matchResults"]["1"]["pointsTeam1"] }}</h1>
+            <h2>{{ matchInfo.team1.teamName }}</h2>
+            <h1>:</h1>
+            <h2>
+              {{ matchInfo.team2.teamName }}
+            </h2>
+            <h1>{{ matchInfo["matchResults"]["1"]["pointsTeam2"] }}</h1>
+          </div>
+          <img src="{{ matchInfo.team2.teamIconUrl }}" alt="" />
+        </div>
+        <div class="halfTime">
+          <h3>({{ matchInfo["matchResults"]["0"]["pointsTeam1"] }}</h3>
+          <h3>:</h3>
+          <h3>{{ matchInfo["matchResults"]["0"]["pointsTeam2"] }})</h3>
+        </div>
+      </ng-template>
+
+      <ng-template #elseBlock>
+        <div class="matchDetails">
+          <img src="{{ matchInfo.team1.teamIconUrl }}" alt="" />
+          <div class="matchResult">
+            <h1>N/A</h1>
+            <h2>{{ matchInfo.team1.teamName }}</h2>
+            <h1>:</h1>
+            <h2>
+              {{ matchInfo.team2.teamName }}
+            </h2>
+            <h1>N/A</h1>
+          </div>
+          <img src="{{ matchInfo.team2.teamIconUrl }}" alt="" />
+        </div>
+        <div class="halfTime">
+          <h3>(N/A</h3>
+          <h3>:</h3>
+          <h3>N/A)</h3>
+        </div>
+      </ng-template>
+      <h3>{{ matchInfo.matchDateTime | date : "dd.MM.yyyy',' HH:mm 'Uhr'" }}</h3>
+   
+      
+      <div class="goals">
+        <table>
+          <tr>
+            <th><h1>Info</h1></th>
+          </tr>
+          <tr *ngFor="let goal of matchInfo.goals">
+            <h2>{{ goal.matchMinute || goal.comment }} min</h2>
+            <h2>{{ goal.goalGetterName }}</h2>
+            <ng-template
+              ><h2 [ngIf]="goal.isOvertime">overtime</h2></ng-template
+            >
+            <ng-template><h2 [ngIf]="goal.isOwnGoal">owngoal</h2></ng-template>
+            <ng-template><h2 [ngIf]="goal.isPenalty">penalty</h2></ng-template>
+          </tr>
+        </table>
+      </div>
+    </mat-card>
+    <div>
+      <button
+        mat-button
+        style="width: fit-content; background-color: #1584b8"
+        [routerLink]="['../']"
+      >
+        Zurück
+      </button>
+    </div>
+  </mat-card>
+</mat-card>

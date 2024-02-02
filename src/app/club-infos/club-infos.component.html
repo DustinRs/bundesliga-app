@@ -1,0 +1,53 @@
+<mat-card class="clubInfos">
+  <mat-card [routerLink]="club.matchID" *ngFor="let club of clubInfo">
+    <div *ngIf="club.matchIsFinished; then thenBlock; else elseBlock"></div>
+    <ng-template #thenBlock>
+      <div class="top">
+        <h5>{{ club.leagueName }}</h5>
+        <h5>{{ club.group.groupName }}</h5>
+      </div>
+      <div class="middle">
+        <div class="leftTeam">
+          <h5 class="team">
+            {{ club.team1.teamName }}<img src="{{ club.team1.teamIconUrl }}" />
+          </h5>
+        </div>
+        <div class="middleOfMiddle">
+          <h5>{{ club["matchResults"]["1"]["pointsTeam1"] }}</h5>
+          <h5>vs.</h5>
+          <h5>{{ club["matchResults"]["1"]["pointsTeam2"] }}</h5>
+        </div>
+        <div class="leftTeam">
+          <h5 class="team">
+            <img src="{{ club.team2.teamIconUrl }}" />{{ club.team2.teamName }}
+          </h5>
+        </div>
+      </div>
+      <h5>{{ club.matchDateTime | date : "dd.MM.yyyy',' HH:mm 'Uhr'" }}</h5>
+    </ng-template>
+    <ng-template #elseBlock>
+        <div class="top">
+            <h5>{{ club.leagueName }}</h5>
+            <h5>{{ club.group.groupName }}</h5>
+          </div>
+          <div class="middle">
+            <div class="leftTeam">
+              <h5 class="team">
+                {{ club.team1.teamName }}<img src="{{ club.team1.teamIconUrl }}" />
+              </h5>
+            </div>
+            <div class="middleOfMiddle">
+              <h5>N/A</h5>
+              <h5>vs.</h5>
+              <h5>N/A</h5>
+            </div>
+            <div class="leftTeam">
+              <h5 class="team">
+                <img src="{{ club.team2.teamIconUrl }}" />{{ club.team2.teamName }}
+              </h5>
+            </div>
+          </div>
+          <h5>{{ club.matchDateTime | date : "dd.MM.yyyy',' HH:mm 'Uhr'" }}</h5>
+    </ng-template>
+  </mat-card>
+</mat-card>

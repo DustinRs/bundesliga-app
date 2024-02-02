@@ -1,0 +1,149 @@
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  > table {
+    width: 100%;
+    > tr:first-child {
+      background-color: #1584b8;
+      > th:first-child {
+        text-align: start;
+        padding-left: 16px;
+      }
+    }
+    > tr {
+      width: 100%;
+      > th {
+        border-bottom: 1px solid #303030;
+        border-right: 1px solid #303030;
+        padding: 12px;
+      }
+      > td {
+        padding: 12px;
+        border-bottom: 1px solid #303030;
+        border-right: 1px solid #303030;
+        text-align: center;
+      }
+      > td:first-child {
+        text-align: start;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+    }
+  }
+}
+.td1,
+.td2,
+.td3,
+.td4 {
+  border-left: 2px solid blue;
+}
+
+.td5 {
+  border-left: 2px solid orange;
+}
+
+.td6 {
+  border-left: 2px solid green;
+}
+.td16 {
+  border-left: 2px solid yellow;
+}
+.td17,
+.td18 {
+  border-left: 2px solid red;
+}
+
+img {
+  width: 24px;
+}
+
+ul {
+  list-style-type: square;
+}
+
+.blue::marker {
+  color: blue;
+}
+.orange::marker {
+  color: orange;
+}
+.green::marker {
+  color: green;
+}
+.yellow::marker {
+  color: yellow;
+}
+.red::marker {
+  color: red;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  > h3 {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  mat-card {
+    padding: 0px;
+    font-size: 12px;
+    > table {
+      > tr:first-child {
+        > th:first-child {
+          padding-left: 4px;
+        }
+      }
+      > tr {
+        width: 100%;
+        > th {
+          padding: 4px;
+        }
+        > td {
+          padding: 4px;
+        }
+        > td:first-child {
+          gap: 4px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  mat-card {
+    padding: 0px;
+    font-size: 12px;
+    > table {
+      > tr:first-child {
+        > th:first-child {
+          padding-left: 4px;
+        }
+      }
+      > tr {
+        width: 100%;
+        > th {
+          padding: 2px;
+        }
+        > td {
+          padding: 1px;
+        }
+        > td:first-child {
+          word-break: break-word;
+          text-align: center;
+          min-width: 100px;
+          gap: 2px;
+        }
+      }
+    }
+  }
+}

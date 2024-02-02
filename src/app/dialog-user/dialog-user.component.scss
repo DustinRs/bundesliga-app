@@ -1,0 +1,35 @@
+.dialog {
+  padding: 16px;
+  color: white;
+  position: relative;
+}
+mat-progress-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+img {
+  width: 24px;
+}
+
+.selectOptions {
+  margin-right: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  > p {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 360px) {
+    .dialog {
+        height: 60vh;
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+      }
+}

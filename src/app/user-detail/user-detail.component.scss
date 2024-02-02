@@ -1,0 +1,45 @@
+.top {
+    min-height: 240px;
+    background-color: #1584b8;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    >img {
+        height: 120px;
+        border-radius: 100%;
+        padding: 16px;
+    }
+}
+
+.userDetails {
+    margin-left: 16px;
+    padding: 16px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.pos-rel {
+    position: relative;
+}
+
+.iconMenu {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.club {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 0 !important;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}

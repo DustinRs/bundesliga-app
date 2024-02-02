@@ -1,0 +1,84 @@
+<div class="section">
+  <mat-card class="column">
+    <mat-card>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Spieltag</mat-label>
+        <mat-select>
+          <mat-option
+            *ngFor="let day of gameDaysFiltered[0]"
+            value="{{ day }}"
+            (click)="getGameDay(day)"
+            id="{{ day }}"
+            >{{ day }}</mat-option
+          >
+        </mat-select>
+        <mat-hint>Wähle einen Spieltag</mat-hint>
+      </mat-form-field>
+    </mat-card>
+  </mat-card>
+  <mat-card class="actualGameDay">
+    <div (click)="getPreviousGameDay((gameDayNameNumber - 1).toString())">
+      <div>
+        <mat-icon>arrow_back_ios_new</mat-icon>
+      </div>
+      <div>
+        <p>Letzter Spieltag</p>
+      </div>
+    </div>
+    <h1>Aktueller Spieltag: {{ gameDayName }}.</h1>
+    <div (click)="getNextGameDay((gameDayNameNumber + 1).toString())">
+      <div>
+        <p>Nächster Spieltag</p>
+      </div>
+      <div>
+        <mat-icon>arrow_forward_ios_new</mat-icon>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card class="todaysMatches">
+    <mat-card
+      [routerLink]="match.matchID"
+      class="matches"
+      *ngFor="let match of matches"
+    >
+      <div *ngIf="match.matchIsFinished; then thenBlock; else elseBlock"></div>
+      <ng-template #thenBlock>
+        <div class="matchDetails">
+          <img src="{{ match.team1.teamIconUrl }}" alt="" />
+          <div class="matchInfo">
+            <h2>{{ match.team1.teamName }}</h2>
+            <h1>{{ match["matchResults"]["1"]["pointsTeam1"] }}</h1>
+
+            <h3>vs.</h3>
+            <h1>{{ match["matchResults"]["1"]["pointsTeam2"] }}</h1>
+
+            <h2>
+              {{ match.team2.teamName }}
+            </h2>
+          </div>
+
+          <img src="{{ match.team2.teamIconUrl }}" alt="" />
+        </div>
+      </ng-template>
+      <ng-template #elseBlock>
+        <div class="matchDetails">
+          <img src="{{ match.team1.teamIconUrl }}" alt="" />
+          <div class="matchInfo">
+            <h2>{{ match.team1.teamName }}</h2>
+
+            <h1>'N/A'</h1>
+            <h3>vs.</h3>
+
+            <h1>'N/A'</h1>
+            <h2>
+              {{ match.team2.teamName }}
+            </h2>
+          </div>
+
+          <img src="{{ match.team2.teamIconUrl }}" alt="" />
+        </div>
+      </ng-template>
+      <h3>{{ match.matchDateTime | date : "dd.MM.yyyy',' HH:mm 'Uhr'" }}</h3>
+    </mat-card>
+  </mat-card>
+</div>

@@ -1,0 +1,77 @@
+<mat-drawer-container class="mat-drawer-container" autosize>
+  <mat-drawer
+    #drawer
+    class="sidenav"
+    position="start"
+    opened="true"
+    mode="side"
+  >
+    <div class="logo-container">
+      <img src="assets/imgs/logoCRM.png" alt="" />
+    </div>
+
+    <ul>
+      <li routerLink="news" routerLinkActive="li-active">
+        <mat-icon>feed</mat-icon>News
+      </li>
+      <li routerLink="dashboard" routerLinkActive="li-active">
+        <mat-icon>dashboard</mat-icon>Dashboard
+      </li>
+      <li routerLink="table" routerLinkActive="li-active">
+        <mat-icon>table_chart</mat-icon>Table
+      </li>
+      <li routerLink="statistics" routerLinkActive="li-active">
+        <mat-icon>table_view</mat-icon>Statistics
+      </li>
+      <li routerLink="clubs" routerLinkActive="li-active">
+        <mat-icon>sports_soccer</mat-icon>Clubs
+      </li>
+      <li routerLink="user" routerLinkActive="li-active">
+        <mat-icon>people</mat-icon>Friends
+      </li>
+    </ul>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar color="primary">
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="menu-mobile-button"
+        [matMenuTriggerFor]="menu"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Menu</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+  </div>
+  <mat-menu class="menu-mobile" #menu="matMenu">
+    <ul>
+      <li routerLink="news" routerLinkActive="li-active">
+        <mat-icon>feed</mat-icon>News
+      </li>
+      <li routerLink="dashboard" routerLinkActive="li-active">
+        <mat-icon>dashboard</mat-icon>Dashboard
+      </li>
+      <li routerLink="table" routerLinkActive="li-active">
+        <mat-icon>table_chart</mat-icon>Table
+      </li>
+      <li routerLink="statistics" routerLinkActive="li-active">
+        <mat-icon>table_view</mat-icon>Statistics
+      </li>
+      <li routerLink="clubs" routerLinkActive="li-active">
+        <mat-icon>sports_soccer</mat-icon>Clubs
+      </li>
+      <li routerLink="user" routerLinkActive="li-active">
+        <mat-icon>people</mat-icon>Friends
+      </li>
+    </ul>
+  </mat-menu>
+
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

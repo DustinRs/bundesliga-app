@@ -1,0 +1,13 @@
+<mat-card>
+    <table>
+        <tr>
+            <th>Tore</th>
+            <th>Name</th>
+        </tr>
+        <tr *ngFor="let data of statisticsData; index as i">
+            <td>{{i+1}}. {{data.goalGetterName}}</td>
+            <td>{{data.goalCount}}</td>
+            
+        </tr>
+    </table>
+</mat-card>

@@ -1,0 +1,39 @@
+<mat-card>
+  <table>
+    <tr>
+      <th>Verein</th>
+      <th>Sp</th>
+      <th>S</th>
+      <th>U</th>
+      <th>N</th>
+      <th>T</th>
+      <th>GT</th>
+      <th>TD</th>
+      <th>Pkte</th>
+    </tr>
+    <tr *ngFor="let team of tableData; index as i">
+      <td class="td{{ i + 1 }}">
+        {{ i + 1 }}. <img src="{{ team.teamIconUrl }}" alt="" />
+        {{ team.teamName }}
+      </td>
+      <td>{{ team.matches }}</td>
+      <td>{{ team.won }}</td>
+      <td>{{ team.draw }}</td>
+      <td>{{ team.lost }}</td>
+      <td>{{ team.goals }}</td>
+      <td>{{ team.opponentGoals }}</td>
+      <td>{{ team.goalDiff }}</td>
+      <td>{{ team.points }}</td>
+    </tr>
+  </table>
+  <div class="bottom">
+    <h3>Qualifikation/Relegation</h3>
+    <ul>
+      <li class="blue">Champions League-Gruppenphase</li>
+      <li class="orange">Europa League-Gruppenphase</li>
+      <li class="green">Europa Conference League-Qualifikationsphase</li>
+      <li class="yellow">Relegationsplatz</li>
+      <li class="red">Abstiegsplätze</li>
+    </ul>
+  </div>
+</mat-card>

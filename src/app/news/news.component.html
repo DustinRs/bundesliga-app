@@ -1,0 +1,13 @@
+<mat-card class="wrap">
+  <mat-card *ngFor="let article of news">
+    <img src="{{article.urlToImage}}" alt="">
+    <h2>{{ article.title }}</h2>
+    <h3>{{ article.content }}</h3>
+    <h5>Autor: {{ article.author }}</h5>
+    <h5>
+      Veröffentlicht am
+      {{ article.publishedAt | date : "dd.MM.yyyy',' HH:mm 'Uhr'" }}
+    </h5>
+    <a mat-button href="{{ article.url }}" target="_blank">Zum Artikel</a>
+  </mat-card>
+</mat-card>

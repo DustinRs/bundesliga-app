@@ -1,0 +1,118 @@
+.userDiv {
+  display: flex;
+}
+.list {
+  width: 100%;
+  
+}
+.w-80px {
+  width: 80px;
+}
+
+mat-card {
+  position: relative;
+  > table {
+    border-spacing: 0px;
+    width: 100%;
+    border-collapse: collapse;
+    height: 56px;
+    > tr {
+      border-bottom: 8px solid #303030;
+      height: 56px;
+      z-index: 1;
+      &:last-child {
+        border-bottom: 0;
+        height: 60px;
+      }
+      &:hover {
+        background-color: #c2185b;
+      }
+      > th {
+        text-align: start;
+        padding: 16px;
+        background-color: #1584b8;
+      }
+      > th:last-child {
+        width: 48px;
+      }
+      > td {
+        padding: 16px;
+      }
+    }
+  }
+}
+
+button {
+  position: absolute;
+  bottom: 64px;
+  right: 64px;
+}
+.deleteButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 48px;
+  height: 48px !important;
+  &:hover{
+    cursor: pointer;
+    background-color: #1584b8;
+  }
+    > mat-icon {
+      z-index: 3;
+  }
+}
+
+img {
+  width: 24px;
+}
+
+@media (max-width: 500px) {
+  button {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  mat-card {
+    word-wrap: break-word;
+    > table {
+      height: 56px;
+      > tr {
+        height: 56px;
+        &:last-child {
+          height: 60px;
+        }
+        > th {
+          padding: 8px;
+        }
+        > th:last-child {
+          width: 32px;
+        }
+        > td {
+          padding: 8px;
+        }
+      }
+    }
+  }
+
+  .deleteButton {
+    width: 32px;
+    height: 32px !important;
+    &:hover{
+      cursor: pointer;
+      background-color: #1584b8;
+    }
+      > mat-icon {
+        z-index: 3;
+    }
+  }
+
+  th {
+     font-size: 12px;
+  }
+
+  td {
+    font-size: 11px;
+ }
+}

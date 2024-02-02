@@ -1,0 +1,44 @@
+<mat-card class="top">
+  <img class="img" src="assets/imgs/profile.png" alt="" />
+  <div class="userDetails">
+    <h2>{{ newUser.firstName }} {{ newUser.lastName }}</h2>
+    <a href="mailto: {{ newUser.email }}">Email: {{ newUser.email }}</a>
+  </div>
+  <img class="club" src="{{ newUser.club }}" alt="" />
+  <button
+    (click)="openAdressDialog()"
+    class="iconMenu"
+    mat-icon-button
+    [matMenuTriggerFor]="menuUser"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menuUser="matMenu">
+    <button mat-menu-item (click)="editUserDetail()">Edit</button>
+    <button mat-button (click)="deleteUser()">Delete</button>
+  </mat-menu>
+</mat-card>
+
+<mat-card class="mt-16 pos-rel">
+  <button
+    (click)="openAdressDialog()"
+    class="iconMenu"
+    mat-icon-button
+    [matMenuTriggerFor]="menuAdress"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menuAdress="matMenu">
+    <button mat-menu-item (click)="editMenu()">Edit</button>
+    <button mat-button (click)="deleteUser()">Delete</button>
+  </mat-menu>
+  <mat-card-header>
+    <mat-card-title>Adress</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Street & Number: {{ newUser.street }} <br />
+    City: {{ newUser.city }}
+  </mat-card-content>
+</mat-card>
