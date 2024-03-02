@@ -28,10 +28,8 @@ export class NewsComponent implements OnInit{
   }
 
   async ngOnInit() {
-    const querySnapshot = await getDocs(collection(this.firestore, 'News'));
-    let news = querySnapshot.docs.map((doc) => doc.data());
-    this.news = news;
-    //this.fetchSeasonAllData();
+    
+    this.fetchSeasonAllData();
     
   }
 
@@ -39,10 +37,9 @@ export class NewsComponent implements OnInit{
     
     this.httpCLient
       .get(`
-      https://newsapi.org/v2/everything?q=bundesliga&apiKey=2e04129a60a14897bc02336e9a2e21f2`)
+      https://gnews.io/api/v4/search?q=bundesliga&lang=de&apikey=1c89134aac8e775bc6ec4329a47ffdf5`)
       .subscribe((data: any) => {
-        this.news = data;
-        this.news = this.news.articles
+        this.news = data.articles;
         console.log('news', this.news);
         
       });
