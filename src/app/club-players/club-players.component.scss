@@ -1,0 +1,39 @@
+mat-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  > mat-card {
+    padding: 16px;
+    background-color: #323232;
+    width: calc(33% - 8px);
+    display: flex;
+    flex-direction: column;
+    > div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    text-align: end;
+      gap: 16px;
+    }
+  }
+}
+
+img {
+  width: 96px;
+  border-radius: 100%;
+  border: 2px solid #1584b8;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.positions {
+    width: 100% !important;
+    text-align: center;
+}

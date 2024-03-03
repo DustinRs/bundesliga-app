@@ -1,9 +1,20 @@
+.buttons {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 16px;
+    >h1 {
+        margin: 0;
+    }
+}
 .clubInfos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 16px;
     padding: 16px;
     >mat-card{
         display: flex;

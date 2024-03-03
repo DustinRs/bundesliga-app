@@ -1,0 +1,18 @@
+<mat-card>
+    <h1>Top 20: Rote Karten</h1>
+    <table>
+        <tr>
+            <th>Rang</th>
+            <th>Name</th>
+            <th>Tore</th>
+            <th>Club</th>
+        </tr>
+        <tr *ngFor="let cards of redCards; index as i">
+            <td>{{i+1}}.</td>
+            <td><img class="imgPhoto" src="{{cards.player.photo}}" alt=""> {{cards.player.name}}</td>
+            <td>{{cards.statistics['0'].cards.red}}</td>
+            <td><img class="imgLogo" src="{{cards.statistics['0'].team.logo}}" alt=""></td>
+            
+        </tr>
+    </table>
+</mat-card>

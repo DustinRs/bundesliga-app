@@ -9,6 +9,12 @@ import { ClubsComponent } from './clubs/clubs.component';
 import { ClubInfosComponent } from './club-infos/club-infos.component';
 import { ClubMatchInfosComponent } from './club-match-infos/club-match-infos.component';
 import { NewsComponent } from './news/news.component';
+import { TopscorerComponent } from './topscorer/topscorer.component';
+import { TopassistsComponent } from './topassists/topassists.component';
+import { YellowcardsComponent } from './yellowcards/yellowcards.component';
+import { RedcardsComponent } from './redcards/redcards.component';
+import { ClubPlayersComponent } from './club-players/club-players.component';
+import { ClubVenueComponent } from './club-venue/club-venue.component';
 
 export const routes: Routes = [
   { path: '', component: NewsComponent },
@@ -22,4 +28,10 @@ export const routes: Routes = [
   { path: 'clubs', component: ClubsComponent },
   { path: 'clubs/:id', component: ClubInfosComponent },
   { path: 'clubs/:clubid/:id', component: ClubMatchInfosComponent },
+  { path: 'clubs/:clubid/players/:clubName', component: ClubPlayersComponent },
+  { path: 'clubs/:clubid/venue/:clubName', component: ClubVenueComponent },
+  { path: 'topscorer', component: TopscorerComponent },
+  { path: 'topassists', component: TopassistsComponent },
+  { path: 'yellowcards', component: YellowcardsComponent },
+  { path: 'redcards', component: RedcardsComponent },
 ];

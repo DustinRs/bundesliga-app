@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -15,8 +15,10 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 export class ClubInfosComponent {
   clubId: any;
   clubInfo: any = [];
+  clubName: any;
   httpCLient = inject(HttpClient);
-  constructor(private route:ActivatedRoute) {
+  players: any;
+  constructor(private route:ActivatedRoute,private http: HttpClient) {
     
   }
 
@@ -25,6 +27,7 @@ export class ClubInfosComponent {
       this.clubId = paramMap.get('id');
       console.log(this.clubId)
       this.fetchClubInfo(this.clubId);
+      this.fetchClubName(this.clubId);
   })
   }
 
@@ -40,4 +43,20 @@ export class ClubInfosComponent {
           });
       
   }
+
+  fetchClubName(clubId: any) {
+    
+    this.httpCLient
+      .get(
+        `https://api.openligadb.de/getavailableteams/bl1/2023`
+      )
+      .subscribe((data: any) => {
+        this.clubName = data.filter((n:any) => n['teamId'] === Number(clubId));
+        this.clubName = this.clubName['0']['shortName'];
+        this.clubName = this.clubName.toLowerCase();
+        console.log(this.clubName)
+      });
+  
+}
+
 }

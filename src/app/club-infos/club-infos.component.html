@@ -1,3 +1,8 @@
+<mat-card class="buttons">
+  <button [routerLink]="'players/'+clubName">Mannschaft</button>
+  <h1>Alle Spiele</h1>
+  <button [routerLink]="'venue/'+clubName">Verein Details</button>
+</mat-card>
 <mat-card class="clubInfos">
   <mat-card [routerLink]="club.matchID" *ngFor="let club of clubInfo">
     <div *ngIf="club.matchIsFinished; then thenBlock; else elseBlock"></div>

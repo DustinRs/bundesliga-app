@@ -1,0 +1,18 @@
+<mat-card>
+    <h1>Top 20: Torschützen</h1>
+    <table>
+        <tr>
+            <th>Rang</th>
+            <th>Name</th>
+            <th>Tore</th>
+            <th>Club</th>
+        </tr>
+        <tr *ngFor="let scorer of goalGetters; index as i">
+            <td>{{i+1}}.</td>
+            <td><img class="imgPhoto" src="{{scorer.player.photo}}" alt=""> {{scorer.player.name}}</td>
+            <td>{{scorer.statistics['0'].goals.total}}</td>
+            <td><img class="imgLogo" src="{{scorer.statistics['0'].team.logo}}" alt=""></td>
+            
+        </tr>
+    </table>
+</mat-card>
