@@ -2,6 +2,8 @@ mat-card {
     padding: 16px;
     > table {
       > tr:first-child {
+        display: flex;
+        justify-content: space-around;
         background-color: #1584b8;
         > th {
           text-align: start;
@@ -9,11 +11,16 @@ mat-card {
         }
       }
       > tr {
+        display: flex;
         width: 100%;
+        text-align: center;
         > td {
           width: 50%;
           padding: 16px;
           border: 1px solid #303030;
+          display: flex;
+          align-items: center;
+          gap: 16px;
         }
       }
     }

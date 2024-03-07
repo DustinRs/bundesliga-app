@@ -1,64 +1,36 @@
 <mat-card>
-    <mat-card class="positions"><h1>Angriff</h1></mat-card>
-  <mat-card *ngFor="let player of st['0']">
+  <mat-card class="positions"><h1>Angriff</h1></mat-card>
+  <!-- <mat-card (click)="openPlayerDetails('276')">
     <div>
-      <img
-        *ngIf="player.player.photo !== undefined"
-        src="{{ player.player.photo }}"
-        alt=""
-      />
-      <img
-        *ngIf="player.player.photo == undefined"
-        src="assets/imgs/profile.png"
-        alt=""
-      />
+      <img src="/assets/imgs/profile.png" alt="" />
       <div>
-        <h1>{{ player.player.firstname }}</h1>
-        <h1>{{ player.player.lastname }}</h1>
+        <h1>firstname</h1>
+        <h1>lastname</h1>
       </div>
-    </div>
-    <h2>{{ player.statistics["0"].games.position }}</h2>
-    <div>
-      <h2>{{ player.player.age }} Jahre</h2>
-      <h2>{{ player.player.height }}</h2>
-      <h2>{{ player.player.weight }}</h2>
-    </div>
-    <div>
-      <h2>{{ player.statistics["0"].cards.yellow }} Gelbe Karten</h2>
-      <h2>{{ player.statistics["0"].cards.red }} Rote Karten</h2>
     </div>
   </mat-card>
-<mat-card class="positions"><h1>Mittelfeld</h1></mat-card>
-  <mat-card *ngFor="let player of mid['0']">
+  <mat-card (click)="openPlayerDetails('276')">
     <div>
-      <img
-        *ngIf="player.player.photo !== undefined"
-        src="{{ player.player.photo }}"
-        alt=""
-      />
-      <img
-        *ngIf="player.player.photo == undefined"
-        src="assets/imgs/profile.png"
-        alt=""
-      />
+      <img src="/assets/imgs/profile.png" alt="" />
       <div>
-        <h1>{{ player.player.firstname }}</h1>
-        <h1>{{ player.player.lastname }}</h1>
+        <h1>firstname</h1>
+        <h1>lastname</h1>
       </div>
-    </div>
-    <h2>{{ player.statistics["0"].games.position }}</h2>
-    <div>
-      <h2>{{ player.player.age }} Jahre</h2>
-      <h2>{{ player.player.height }}</h2>
-      <h2>{{ player.player.weight }}</h2>
-    </div>
-    <div>
-      <h2>{{ player.statistics["0"].cards.yellow }} Gelbe Karten</h2>
-      <h2>{{ player.statistics["0"].cards.red }} Rote Karten</h2>
     </div>
   </mat-card>
-<mat-card class="positions"><h1>Abwehr</h1></mat-card>
-  <mat-card *ngFor="let player of def['0']">
+  <mat-card (click)="openPlayerDetails('276')">
+    <div>
+      <img src="/assets/imgs/profile.png" alt="" />
+      <div>
+        <h1>firstname</h1>
+        <h1>lastname</h1>
+      </div>
+    </div>
+  </mat-card> -->
+  <mat-card
+    *ngFor="let player of st['0']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
     <div>
       <img
         *ngIf="player.player.photo !== undefined"
@@ -67,27 +39,19 @@
       />
       <img
         *ngIf="player.player.photo == undefined"
-        src="assets/imgs/profile.png"
+        src="/assets/imgs/profile.png"
         alt=""
       />
       <div>
         <h1>{{ player.player.firstname }}</h1>
         <h1>{{ player.player.lastname }}</h1>
       </div>
-    </div>
-    <h2>{{ player.statistics["0"].games.position }}</h2>
-    <div>
-      <h2>{{ player.player.age }} Jahre</h2>
-      <h2>{{ player.player.height }}</h2>
-      <h2>{{ player.player.weight }}</h2>
-    </div>
-    <div>
-      <h2>{{ player.statistics["0"].cards.yellow }} Gelbe Karten</h2>
-      <h2>{{ player.statistics["0"].cards.red }} Rote Karten</h2>
     </div>
   </mat-card>
-<mat-card class="positions"><h1>Torhüter</h1></mat-card>
-  <mat-card *ngFor="let player of gk['0']">
+  <mat-card
+    *ngFor="let player of st['1']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
     <div>
       <img
         *ngIf="player.player.photo !== undefined"
@@ -96,7 +60,7 @@
       />
       <img
         *ngIf="player.player.photo == undefined"
-        src="assets/imgs/profile.png"
+        src="/assets/imgs/profile.png"
         alt=""
       />
       <div>
@@ -104,15 +68,218 @@
         <h1>{{ player.player.lastname }}</h1>
       </div>
     </div>
-    <h2>{{ player.statistics["0"].games.position }}</h2>
+  </mat-card>
+  <mat-card
+    *ngFor="let player of st['2']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
     <div>
-      <h2>{{ player.player.age }} Jahre</h2>
-      <h2>{{ player.player.height }}</h2>
-      <h2>{{ player.player.weight }}</h2>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
     </div>
+  </mat-card>
+  <mat-card class="positions"><h1>Mittelfeld</h1></mat-card>
+  <mat-card
+    *ngFor="let player of mid['0']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
     <div>
-      <h2>{{ player.statistics["0"].cards.yellow }} Gelbe Karten</h2>
-      <h2>{{ player.statistics["0"].cards.red }} Rote Karten</h2>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card
+    *ngFor="let player of mid['1']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
+    <div>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card
+    *ngFor="let player of mid['2']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
+    <div>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card class="positions"><h1>Abwehr</h1></mat-card>
+  <mat-card
+    *ngFor="let player of def['0']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
+    <div>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card
+    *ngFor="let player of def['1']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
+    <div>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card
+    *ngFor="let player of def['2']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
+    <div>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card class="positions"><h1>Torhüter</h1></mat-card>
+  <mat-card
+    *ngFor="let player of gk['0']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
+    <div>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card
+    *ngFor="let player of gk['1']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
+    <div>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card
+    *ngFor="let player of gk['2']"
+    (click)="openPlayerDetails(player.player.id, player.player.birth.country)"
+  >
+    <div>
+      <img
+        *ngIf="player.player.photo !== undefined"
+        src="{{ player.player.photo }}"
+        alt=""
+      />
+      <img
+        *ngIf="player.player.photo == undefined"
+        src="/assets/imgs/profile.png"
+        alt=""
+      />
+      <div>
+        <h1>{{ player.player.firstname }}</h1>
+        <h1>{{ player.player.lastname }}</h1>
+      </div>
     </div>
   </mat-card>
 </mat-card>

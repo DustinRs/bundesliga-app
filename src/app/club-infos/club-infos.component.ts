@@ -52,11 +52,18 @@ export class ClubInfosComponent {
       )
       .subscribe((data: any) => {
         this.clubName = data.filter((n:any) => n['teamId'] === Number(clubId));
-        this.clubName = this.clubName['0']['shortName'];
-        this.clubName = this.clubName.toLowerCase();
+        this.clubName = this.clubName['0']['teamName'];
+        this.clubName = this.removeSpaceNumber(this.clubName.toLowerCase());
         console.log(this.clubName)
       });
-  
-}
 
+      
+    }
+    
+    removeSpaceNumber(text: string): string {
+      text = text.replace(/(?:fc|borussia|fsv|eintracht|sc|vfb|vfl|sv|münchen|tsg|mönchen|rb)/gi, '');
+    
+    text = text.replace(/[^\p{L}]/gu, '');
+    return text;
+  }
 }

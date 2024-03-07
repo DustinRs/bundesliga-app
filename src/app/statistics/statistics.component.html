@@ -2,80 +2,113 @@
   <mat-card>
     <h1>Top 3: Torschützen</h1>
     <table>
-        <tr>
-            <th>Rang</th>
-            <th>Name</th>
-            <th>Tore</th>
-            <th>Club</th>
-        </tr>
-        <tr *ngFor="let scorer of goalGetters; index as i">
-            <td *ngIf="i < 3">{{i+1}}.</td>
-            <td *ngIf="i < 3"><img class="imgPhoto" src="{{scorer.player.photo}}" alt=""> {{scorer.player.name}}</td>
-            <td *ngIf="i < 3">{{scorer.statistics['0'].goals.total}}</td>
-            <td *ngIf="i < 3"><img class="imgLogo" src="{{scorer.statistics['0'].team.logo}}" alt=""></td>
-            
-        </tr>
+      <tr>
+        <th>Rang</th>
+        <th>Spieler</th>
+        <th>Tore</th>
+        <th>Club</th>
+      </tr>
+      <tr *ngFor="let scorer of goalGetters; index as i">
+        <td *ngIf="i < 3">{{ i + 1 }}.</td>
+        <td *ngIf="i < 3">
+          <img class="imgPhoto" src="{{ scorer.player.photo }}" alt="" />
+          {{ scorer.player.name }}
+        </td>
+        <td *ngIf="i < 3">{{ scorer.statistics["0"].goals.total }}</td>
+        <td *ngIf="i < 3">
+          <img
+            class="imgLogo"
+            src="{{ scorer.statistics['0'].team.logo }}"
+            alt=""
+          />
+        </td>
+      </tr>
     </table>
-    <button routerLink="/topscorer">Top 20</button>
-</mat-card>
+    <div><button routerLink="/topscorer">Top 20</button></div>
+  </mat-card>
   <mat-card>
     <h1>Top 3: Vorlagen</h1>
     <table>
-        <tr>
-            <th>Rang</th>
-            <th>Name</th>
-            <th>Vorlagen</th>
-            <th>Club</th>
-        </tr>
-        <tr *ngFor="let assist of assists; index as i">
-            <td *ngIf="i < 3">{{i+1}}.</td>
-            <td *ngIf="i < 3"><img class="imgPhoto" src="{{assist.player.photo}}" alt=""> {{assist.player.name}}</td>
-            <td *ngIf="i < 3">{{assist.statistics['0'].goals.assists}}</td>
-            <td *ngIf="i < 3"><img class="imgLogo" src="{{assist.statistics['0'].team.logo}}" alt=""></td>
-            
-        </tr>
+      <tr>
+        <th>Rang</th>
+        <th>Spieler</th>
+        <th>Vorlagen</th>
+        <th>Club</th>
+      </tr>
+      <tr *ngFor="let assist of assists; index as i">
+        <td *ngIf="i < 3">{{ i + 1 }}.</td>
+        <td *ngIf="i < 3">
+          <img class="imgPhoto" src="{{ assist.player.photo }}" alt="" />
+          {{ assist.player.name }}
+        </td>
+        <td *ngIf="i < 3">{{ assist.statistics["0"].goals.assists }}</td>
+        <td *ngIf="i < 3">
+          <img
+            class="imgLogo"
+            src="{{ assist.statistics['0'].team.logo }}"
+            alt=""
+          />
+        </td>
+      </tr>
     </table>
-    <button routerLink="/topassists">Top 20</button>
-</mat-card>
+    <div><button routerLink="/topassists">Top 20</button></div>
+  </mat-card>
   <mat-card>
     <h1>Top 3: Gelbe Karten</h1>
     <table>
-        <tr>
-            <th>Rang</th>
-            <th>Name</th>
-            <th>Gelbe Karten</th>
-            <th>Club</th>
-        </tr>
-        <tr *ngFor="let cards of yellowCards; index as i">
-            <td *ngIf="i < 3">{{i+1}}.</td>
-            <td *ngIf="i < 3"><img class="imgPhoto" src="{{cards.player.photo}}" alt=""> {{cards.player.name}}</td>
-            <td *ngIf="i < 3">{{cards.statistics['0'].cards.yellow}}</td>
-            <td *ngIf="i < 3"><img class="imgLogo" src="{{cards.statistics['0'].team.logo}}" alt=""></td>
-            
-        </tr>
+      <tr>
+        <th>Rang</th>
+        <th>Spieler</th>
+        <th>Karten</th>
+        <th>Club</th>
+      </tr>
+      <tr *ngFor="let cards of yellowCards; index as i">
+        <td *ngIf="i < 3">{{ i + 1 }}.</td>
+        <td *ngIf="i < 3">
+          <img class="imgPhoto" src="{{ cards.player.photo }}" alt="" />
+          {{ cards.player.name }}
+        </td>
+        <td *ngIf="i < 3">{{ cards.statistics["0"].cards.yellow }}</td>
+        <td *ngIf="i < 3">
+          <img
+            class="imgLogo"
+            src="{{ cards.statistics['0'].team.logo }}"
+            alt=""
+          />
+        </td>
+      </tr>
     </table>
-    
-    <button routerLink="/yellowcards">Top 20</button>
-</mat-card>
-<mat-card>
+    <div>
+      <button routerLink="/yellowcards">Top 20</button>
+    </div>
+  </mat-card>
+  <mat-card>
     <h1>Top 3: Rote Karten</h1>
     <table>
-        <tr>
-            <th>Rang</th>
-            <th>Name</th>
-            <th>Rote Karten</th>
-            <th>Club</th>
-        </tr>
-        <tr *ngFor="let cards of redCards; index as i">
-            <td *ngIf="i < 3">{{i+1}}.</td>
-            <td *ngIf="i < 3"><img class="imgPhoto" src="{{cards.player.photo}}" alt=""> {{cards.player.name}}</td>
-            <td *ngIf="i < 3">{{cards.statistics['0'].cards.red}}</td>
-            <td *ngIf="i < 3"><img class="imgLogo" src="{{cards.statistics['0'].team.logo}}" alt=""></td>
-            
-        </tr>
+      <tr>
+        <th>Rang</th>
+        <th>Spieler</th>
+        <th>Karten</th>
+        <th>Club</th>
+      </tr>
+      <tr *ngFor="let cards of redCards; index as i">
+        <td *ngIf="i < 3">{{ i + 1 }}.</td>
+        <td *ngIf="i < 3">
+          <img class="imgPhoto" src="{{ cards.player.photo }}" alt="" />
+          {{ cards.player.name }}
+        </td>
+        <td *ngIf="i < 3">{{ cards.statistics["0"].cards.red }}</td>
+        <td *ngIf="i < 3">
+          <img
+            class="imgLogo"
+            src="{{ cards.statistics['0'].team.logo }}"
+            alt=""
+          />
+        </td>
+      </tr>
     </table>
-    
-    <button routerLink="/redcards">Top 20</button>
-</mat-card>
-  
+    <div>
+      <button routerLink="/redcards">Top 20</button>
+    </div>
+  </mat-card>
 </mat-card>
