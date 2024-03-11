@@ -1,55 +1,51 @@
-<mat-card>
+<mat-card *ngIf="this.playerDetails">
   <button (click)="close()"><mat-icon>close</mat-icon></button>
-  <img *ngIf="playerDetails.player.photo !== undefined" src="{{ playerDetails.player.photo }}" alt="" />
-  <img
-        *ngIf="playerDetails.player.photo == undefined"
-        src="/assets/imgs/profile.png"
-        alt=""
-      />
+  <img src="{{ this.playerDetails['player'].photo }}" alt="" />
+ 
   <h1>
-    {{ playerDetails.player.firstname }} {{ playerDetails.player.lastname }}
+    {{ this.playerDetails.player.firstname }} {{ this.playerDetails.player.lastname }}
     <img style="width: 48px; border-radius: 0;" src="{{this.flag}}" alt="">
   </h1>
   <div class="agePos">
     <h2 style="text-align: start">
-      {{ playerDetails.statistics["0"].games.position }}
+      {{ this.playerDetails.statistics["0"].games.position }}
     </h2>
     
-    <h2 style="text-align: end">{{ playerDetails.player.age }} J.</h2>
+    <h2 style="text-align: end">{{ this.playerDetails.player.age }} J.</h2>
   </div>
 
   <div class="agePos">
     <h2 style="text-align: start">
-      Team: {{ playerDetails.statistics["0"].team.name }}
+      Team: {{ this.playerDetails.statistics["0"].team.name }}
     </h2>
     <img
       style="width: 48px; border-radius: 0; border: unset;"
-      src="{{ playerDetails.statistics['0'].team.logo }}"
+      src="{{ this.playerDetails.statistics['0'].team.logo }}"
       alt=""
     />
   </div>
 
   <div class="details">
     <div class="left">
-      <h2 *ngIf="playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
         Tore:
       </h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
         Vorlagen:
       </h2>
       <h2>Spiele:</h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
         Pässe:
       </h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
         Passquote:
       </h2>
       <h2>Gelbe Karten:</h2>
       <h2>Rote Karten:</h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position === 'Goalkeeper'">
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position === 'Goalkeeper'">
         Gehalten:
       </h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position === 'Goalkeeper'">
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position === 'Goalkeeper'">
         Gegentore:
       </h2>
       <h2 *ngIf="playerDetails.player.injured">Verletzung:</h2>
@@ -57,41 +53,41 @@
       <h2>Gewicht:</h2>
     </div>
     <div class="right">
-      <h2 *ngIf="playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
-        {{ playerDetails.statistics["0"].goals.total }}
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
+        {{ this.playerDetails.statistics["0"].goals.total }}
       </h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
-        {{ playerDetails.statistics['0'].goals.assists || '0' }}
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
+        {{ this.playerDetails.statistics['0'].goals.assists || '0' }}
     </h2>
       <h2>
-        {{ playerDetails.statistics["0"].games.appearences }}
+        {{ this.playerDetails.statistics["0"].games.appearences }}
       </h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
-        {{ playerDetails.statistics["0"].passes.total }}
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
+        {{ this.playerDetails.statistics["0"].passes.total }}
       </h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
-        {{ playerDetails.statistics["0"].passes.accuracy }}
-      </h2>
-      <h2>
-        {{ playerDetails.statistics["0"].cards.yellow }}
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position !== 'Goalkeeper'">
+        {{ this.playerDetails.statistics["0"].passes.accuracy }}
       </h2>
       <h2>
-        {{ playerDetails.statistics["0"].cards.red }}
+        {{ this.playerDetails.statistics["0"].cards.yellow }}
       </h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position === 'Goalkeeper'">
-        {{ playerDetails.statistics["0"].goals.saves }}
+      <h2>
+        {{ this.playerDetails.statistics["0"].cards.red }}
       </h2>
-      <h2 *ngIf="playerDetails.statistics['0'].games.position === 'Goalkeeper'">
-        {{ playerDetails.statistics["0"].goals.conceded }}
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position === 'Goalkeeper'">
+        {{ this.playerDetails.statistics["0"].goals.saves }}
       </h2>
-      <h2 *ngIf="playerDetails.player.injured">
+      <h2 *ngIf="this.playerDetails.statistics['0'].games.position === 'Goalkeeper'">
+        {{ this.playerDetails.statistics["0"].goals.conceded }}
+      </h2>
+      <h2 *ngIf="this.playerDetails.player.injured">
         Verletzt
       </h2>
       <h2>
-        {{ playerDetails.player.height }}
+        {{ this.playerDetails.player.height }}
       </h2>
       <h2>
-        {{ playerDetails.player.weight }}
+        {{ this.playerDetails.player.weight }}
       </h2>
     </div>
   </div>

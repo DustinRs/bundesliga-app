@@ -18,6 +18,15 @@ export class ClubMatchInfosComponent {
   httpCLient = inject(HttpClient);
   team1ID:any;
   team2ID:any;
+  team1Logo: any;
+  team2Logo: any;
+  pointsTeam1: any;
+  pointsTeam2: any;
+  team1Name: any;
+  team2Name: any;
+  pointsHalf1: any;
+  pointsHalf2: any;
+  groupName: any;
   constructor(private route:ActivatedRoute) {
     
   }
@@ -40,6 +49,15 @@ export class ClubMatchInfosComponent {
             this.matchInfo = data;
             this.team1ID = this.matchInfo.team1.teamId;
             this.team2ID = this.matchInfo.team2.teamId;
+            this.team1Logo = this.matchInfo.team1.teamIconUrl;
+            this.team2Logo = this.matchInfo.team2.teamIconUrl;
+            this.pointsTeam1 = this.matchInfo["matchResults"]["1"]["pointsTeam1"];
+            this.pointsTeam2 = this.matchInfo["matchResults"]["1"]["pointsTeam2"];
+            this.pointsHalf1 = this.matchInfo["matchResults"]["0"]["pointsTeam1"];
+            this.pointsHalf2 = this.matchInfo["matchResults"]["0"]["pointsTeam2"];
+            this.team1Name = this.matchInfo.team1.teamName;
+            this.team2Name = this.matchInfo.team2.teamName;
+            this.groupName = this.matchInfo.group.groupName;
             console.log('akutelles Match', this.team1ID);
           });
       

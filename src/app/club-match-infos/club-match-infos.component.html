@@ -3,25 +3,25 @@
     <h3>{{ matchInfo.matchDateTime | date : "dd.MM.yyyy',' HH:mm 'Uhr'" }}</h3>
     <mat-card>
       <div class="matchDetails">
-        <img src="{{ matchInfo.team1.teamIconUrl }}" alt="" />
+        <img *ngIf="this.matchInfo" src="{{ team1Logo }}" alt="" />
         <div class="matchResult">
-          <h1>{{ matchInfo["matchResults"]["1"]["pointsTeam1"] || 0 }}</h1>
-          <h2>{{ matchInfo.team1.teamName }}</h2>
+          <h1 *ngIf="this.matchInfo">{{ pointsTeam1|| 0 }}</h1>
+          <h2 *ngIf="this.matchInfo">{{ team1Name }}</h2>
           <h1>:</h1>
-          <h2>
-            {{ matchInfo.team2.teamName }}
+          <h2 *ngIf="this.matchInfo">
+            {{ team2Name }}
           </h2>
-          <h1>{{ matchInfo["matchResults"]["1"]["pointsTeam2"] || 0 }}</h1>
+          <h1 *ngIf="this.matchInfo">{{ pointsTeam2 || 0 }}</h1>
         </div>
-        <img src="{{ matchInfo.team2.teamIconUrl }}" alt="" />
+        <img *ngIf="this.matchInfo" src="{{ team2Logo }}" alt="" />
       </div>
       <div class="halfTime">
-        <h3>({{ matchInfo["matchResults"]["0"]["pointsTeam1"] || 0 }}</h3>
+        <h3 *ngIf="this.matchInfo">({{ pointsHalf1 || 0 }}</h3>
         <h3>:</h3>
-        <h3>{{ matchInfo["matchResults"]["0"]["pointsTeam2"] || 0 }})</h3>
+        <h3 *ngIf="this.matchInfo">{{ pointsHalf2 || 0 }})</h3>
       </div>
 
-      <h3>{{ matchInfo.group.groupName }}</h3>
+      <h3 *ngIf="this.matchInfo">{{ groupName }}</h3>
       <div class="goals">
         <table>
           <tr>

@@ -1,1 +1,20 @@
-<p>club-venue works!</p>
+<mat-card *ngIf="venue">
+    <img src="{{venue.image}}" alt="">
+
+    <div>
+        <div>
+    <h1>Name:</h1>
+    <h2>Adresse:</h2>
+    <h2>Kapazität:</h2>
+    <h2>Platz:</h2>
+    </div>
+    <div>
+    <h1>{{venue.name}}</h1>
+    <h2>{{venue.address}}, {{venue.city}}</h2>
+    <h2>{{venue.capacity}}</h2>
+    <h2 *ngIf="venue.surface === 'grass'">Rasen</h2>
+    </div>
+    </div>
+    
+    
+</mat-card>

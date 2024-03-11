@@ -1,0 +1,25 @@
+mat-card {
+  padding: 16px;
+  display: flex;
+  > div {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  border: 2px solid #1584b8;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+}
