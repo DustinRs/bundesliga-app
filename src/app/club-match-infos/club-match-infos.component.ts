@@ -34,7 +34,6 @@ export class ClubMatchInfosComponent {
   ngOnInit() {
     this.route.paramMap.subscribe( paramMap => {
       this.matchId = paramMap.get('id');
-      console.log(this.matchId)
       this.fetchActualGameDayInfo(this.matchId);
   })
   }
@@ -58,7 +57,6 @@ export class ClubMatchInfosComponent {
             this.team1Name = this.matchInfo.team1.teamName;
             this.team2Name = this.matchInfo.team2.teamName;
             this.groupName = this.matchInfo.group.groupName;
-            console.log('akutelles Match', this.team1ID);
           });
       
   }

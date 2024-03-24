@@ -84,7 +84,7 @@ export class EditUserDialogComponent {
       .get(`https://api.openligadb.de/getavailableteams/bl1/${year}`)
       .subscribe((data: any) => {
         this.clubs = data;
-        console.log('imgUrl', data);
+        
       });
   }
 }

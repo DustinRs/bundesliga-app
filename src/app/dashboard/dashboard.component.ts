@@ -39,21 +39,20 @@ export class DashboardComponent implements OnInit {
   gameDayNumber: any = [];
   gameDaysFiltered: any = [];
   matches: any = [];
-  idDay:any;
+  idDay: any;
 
   constructor(private _http: HttpClient, public dialog: MatDialog) {}
 
   ngOnInit(day?: string) {
     if (day == undefined) {
       this.fetchSeasonAllData();
-  
-    this.fetchActualGameDay();
-    this.fetchActualGameDayInfo();
+
+      this.fetchActualGameDay();
+      this.fetchActualGameDayInfo();
     } else {
       this.fetchSeasonAllData();
-    this.fetchSelectedGameDayInfo(day);
+      this.fetchSelectedGameDayInfo(day);
     }
-    
   }
 
   fetchSeasonAllData() {
@@ -65,7 +64,7 @@ export class DashboardComponent implements OnInit {
       .get(`https://api.openligadb.de/getmatchdata/bl1/${year}`)
       .subscribe((data: any) => {
         this.seasonData = data;
-        console.log('season', this.seasonData);
+
         for (let i = 0; i < this.seasonData.length; i++) {
           const gamedays = this.seasonData[i]['group']['groupName'];
           gameDays.push(gamedays);
@@ -75,7 +74,6 @@ export class DashboardComponent implements OnInit {
           gameDaysFiltered.push(day);
         }
         this.gameDaysFiltered.push(gameDaysFiltered);
-
       });
   }
 
@@ -96,24 +94,20 @@ export class DashboardComponent implements OnInit {
       .subscribe((data: any) => {
         this.gameDay = data;
         let dayNumber = this.gameDay.groupOrderID.toString();
-        
-          this.httpCLient
+
+        this.httpCLient
           .get(
             `https://api.openligadb.de/getmatchdata/bl1/${year}/${dayNumber}`
           )
           .subscribe((data: any) => {
             this.matches = data;
-            console.log('akuteller Tag', this.matches);
           });
-        
-        
       });
   }
 
-
   getGameDay(id: string) {
-    let day = this.filterId(id)
-    console.log(day)
+    let day = this.filterId(id);
+
     this.ngOnInit(day.toString());
   }
 
@@ -127,32 +121,22 @@ export class DashboardComponent implements OnInit {
     this.ngOnInit(day.toString());
   }
 
-
-
   fetchSelectedGameDayInfo(idDay: string) {
     let yearNumber = new Date().getFullYear() - 1;
     let year = yearNumber.toString();
-          this.httpCLient
-          .get(
-            `https://api.openligadb.de/getmatchdata/bl1/${year}/${idDay}`
-          )
-          .subscribe((data: any) => {
-            this.matches = data;
-            this.gameDayName = idDay + '. Spieltag';
-            this.gameDayNameNumber = parseInt(idDay);
-            console.log('ausgewählter Tag', this.matches);
-            
-          });
-        
-        
-      
+    this.httpCLient
+      .get(`https://api.openligadb.de/getmatchdata/bl1/${year}/${idDay}`)
+      .subscribe((data: any) => {
+        this.matches = data;
+        this.gameDayName = idDay + '. Spieltag';
+        this.gameDayNameNumber = parseInt(idDay);
+      });
   }
-  filterId(id:string) {
+  filterId(id: string) {
     const match = id.match(/\d+/);
     if (match) {
-        return parseInt(match[0], 10); 
+      return parseInt(match[0], 10);
     }
     return '0';
-    
   }
 }

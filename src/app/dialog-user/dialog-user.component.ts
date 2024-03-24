@@ -34,7 +34,7 @@ import { RouterModule } from '@angular/router';
     MatProgressBarModule,
     HttpClientModule,
     MatSelectModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-user.component.html',
@@ -81,7 +81,6 @@ export class DialogUserComponent {
       .get(`https://api.openligadb.de/getavailableteams/bl1/${year}`)
       .subscribe((data: any) => {
         this.clubs = data;
-        console.log('imgUrl', data);
       });
   }
 }

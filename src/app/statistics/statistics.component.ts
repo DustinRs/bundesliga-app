@@ -52,7 +52,6 @@ export class StatisticsComponent {
       )
       .subscribe((data) => {
         this.goalGetters = data['response'];
-        console.log('goalGetters=', this.goalGetters);
       });
   }
 
@@ -70,7 +69,6 @@ export class StatisticsComponent {
       )
       .subscribe((data) => {
         this.assists = data['response'];
-        console.log('topassists=', this.assists);
       });
   }
 
@@ -88,7 +86,6 @@ export class StatisticsComponent {
       )
       .subscribe((data) => {
         this.yellowCards = data['response'];
-        console.log('topassists=', this.yellowCards);
       });
   }
 
@@ -106,7 +103,6 @@ export class StatisticsComponent {
       )
       .subscribe((data) => {
         this.redCards = data['response'];
-        console.log('topassists=', this.redCards);
       });
   }
 }

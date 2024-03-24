@@ -32,7 +32,7 @@ export class ClubVenueComponent {
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap) => {
       this.clubName = paramMap.get('clubName');
-      console.log('clubname=', this.clubName);
+      
       this.getClub(this.clubName);
     });
   }
@@ -47,7 +47,7 @@ export class ClubVenueComponent {
         headers: headers,
       })
       .subscribe((data) => {
-        console.log('data=', data);
+        
         this.venue = data['response']['0']['venue'];
         
       });

@@ -7,9 +7,9 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [MatButtonModule,MatCardModule, HttpClientModule, CommonModule],
+  imports: [MatButtonModule, MatCardModule, HttpClientModule, CommonModule],
   templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
+  styleUrl: './table.component.scss',
 })
 export class TableComponent {
   httpCLient = inject(HttpClient);
@@ -18,20 +18,16 @@ export class TableComponent {
 
   ngOnInit() {
     this.fetchTableData();
-
-    
   }
 
   fetchTableData() {
-    let yearNumber = new Date().getFullYear() -1;
+    let yearNumber = new Date().getFullYear() - 1;
     let year = yearNumber.toString();
-    
+
     this.httpCLient
       .get(`https://api.openligadb.de/getbltable/bl1/${year}`)
       .subscribe((data: any) => {
         this.tableData = data;
-        console.log('tabelle', data);
-        
       });
   }
 }

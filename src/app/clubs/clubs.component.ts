@@ -31,7 +31,6 @@ export class ClubsComponent {
       .get(`https://api.openligadb.de/getavailableteams/bl1/${year}`)
       .subscribe((data: any) => {
         this.clubsData = data;
-        console.log('clubs', data);
       });
   }
 }

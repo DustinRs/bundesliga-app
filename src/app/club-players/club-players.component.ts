@@ -34,15 +34,15 @@ export class ClubPlayersComponent {
     public dialog: MatDialog
   ) {}
 
-  ngOnInit() {
-    this.route.paramMap.subscribe((paramMap) => {
+  async ngOnInit() {
+    this.route.paramMap.subscribe(async (paramMap) => {
       this.clubName = paramMap.get('clubName');
-      console.log('clubname=', this.clubName);
-      this.getClub(this.clubName);
+
+      await this.getClub(this.clubName);
     });
   }
 
-  getClub(clubName: any) {
+  async getClub(clubName: any) {
     let headers = new HttpHeaders({
       'x-rapidapi-host': 'v3.football.api-sports.io',
       'x-rapidapi-key': '96b34608f0d79080f803b6f02ed320ff',
@@ -52,7 +52,6 @@ export class ClubPlayersComponent {
         headers: headers,
       })
       .subscribe((data) => {
-        console.log('data=', data);
         this.club = data['response']['0']['team']['id'];
         this.getPlayers1(this.club);
         this.getPlayers2(this.club);
@@ -67,13 +66,12 @@ export class ClubPlayersComponent {
     });
     this.http
       .get<any>(
-        `https://v3.football.api-sports.io/players?team=${club}&season=2024&page=1`,
+        `https://v3.football.api-sports.io/players?team=${club}&season=2023&page=1`,
         {
           headers: headers,
         }
       )
       .subscribe((data) => {
-        console.log(data);
         this.players = data['response'];
         let stFiltered = this.players.filter(
           (p: any) => p.statistics['0'].games.position === 'Attacker'
@@ -91,7 +89,6 @@ export class ClubPlayersComponent {
           (p: any) => p.statistics['0'].games.position === 'Goalkeeper'
         );
         this.gk.push(gkFiltered);
-        console.log('st', this.st);
       });
   }
 
@@ -102,13 +99,12 @@ export class ClubPlayersComponent {
     });
     this.http
       .get<any>(
-        `https://v3.football.api-sports.io/players?team=${club}&season=2024&page=2`,
+        `https://v3.football.api-sports.io/players?team=${club}&season=2023&page=2`,
         {
           headers: headers,
         }
       )
       .subscribe((data) => {
-        console.log(data);
         this.players2 = data['response'];
         let stFiltered = this.players2.filter(
           (p: any) => p.statistics['0'].games.position === 'Attacker'
@@ -136,13 +132,12 @@ export class ClubPlayersComponent {
     });
     this.http
       .get<any>(
-        `https://v3.football.api-sports.io/players?team=${club}&season=2024&page=3`,
+        `https://v3.football.api-sports.io/players?team=${club}&season=2023&page=3`,
         {
           headers: headers,
         }
       )
       .subscribe((data) => {
-        console.log(data);
         this.players3 = data['response'];
         let stFiltered = this.players3.filter(
           (p: any) => p.statistics['0'].games.position === 'Attacker'
@@ -165,7 +160,7 @@ export class ClubPlayersComponent {
 
   openPlayerDetails(playerId: any, country: any) {
     const dialog = this.dialog.open(PlayerDetailsComponent);
-    console.log('land', country)
+
     dialog.componentInstance.playerId = playerId;
     dialog.componentInstance.country = country;
   }

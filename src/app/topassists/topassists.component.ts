@@ -34,7 +34,6 @@ this.getStatistics();
 			})
 			.subscribe(data => {
         this.assists = data['response'];
-				console.log('topassists=',this.assists);
 			});
   }
 }

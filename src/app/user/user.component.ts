@@ -43,7 +43,7 @@ export class UserComponent {
   firestore: Firestore = inject(Firestore);
   items$: Observable<any[]>;
   loading = false;
-  imgUrl:any;
+  imgUrl: any;
 
   constructor(public dialog: MatDialog, private _http: HttpClient) {
     const aCollection = collection(this.firestore, 'Users');
@@ -66,14 +66,13 @@ export class UserComponent {
   }
 
   fetchImgUrlData() {
-    let yearNumber = new Date().getFullYear() -1;
+    let yearNumber = new Date().getFullYear() - 1;
     let year = yearNumber.toString();
-    
+
     this.httpCLient
       .get(`https://api.openligadb.de/getavailableteams/bl1/${year}`)
       .subscribe((data: any) => {
         this.imgUrl = data;
-        console.log('imgUrl', data);
       });
   }
 }
